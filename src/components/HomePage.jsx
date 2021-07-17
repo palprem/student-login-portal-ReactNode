@@ -306,7 +306,7 @@ export default function HomePage() {
  */}
 
           {/* Feature section with grid */}
-          <div className="relative bg-white py-16 sm:py-24 lg:py-32">
+          {/* <div className="relative bg-white py-16 sm:py-24 lg:py-32">
             <div className="mx-auto max-w-md px-4 text-center sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl">
               <h2 className="text-base font-semibold tracking-wider text-cyan-600 uppercase">Deploy faster</h2>
               <p className="mt-2 text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl">
@@ -337,6 +337,7 @@ export default function HomePage() {
               </div>
             </div>
           </div>
+ */}
 
           {/* Testimonial section */}
           {/* <div className="pb-16 bg-gradient-to-r from-teal-500 to-cyan-600 lg:pb-0 lg:z-10 lg:relative">
@@ -387,8 +388,9 @@ export default function HomePage() {
               <div className="text-center mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl">
                 <h2 className="text-base font-semibold tracking-wider text-cyan-600 uppercase">Learn</h2>
                 <p className="mt-2 text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl">
-                  Helpful Resources
+                  Your All Activity
                 </p>
+                <button className="py-3 bg-blue-500 px-12 rounded mt-2">Add Article</button>
                 <p className="mt-5 mx-auto max-w-prose text-xl text-gray-500">
                   Phasellus lorem quam molestie id quisque diam aenean nulla in. Accumsan in quis quis nunc, ullamcorper
                   malesuada. Eleifend condimentum id viverra nulla.
@@ -481,7 +483,7 @@ export default function HomePage() {
           <h2 id="footerHeading" className="sr-only">
             Footer
           </h2>
-          <div className="max-w-md mx-auto pt-12 px-4 sm:max-w-7xl sm:px-6 lg:pt-16 lg:px-8">
+          <div className="max-w-md mx-auto  px-4 sm:max-w-7xl sm:px-6 lg:pt-16 lg:px-8">
             <div className="xl:grid xl:grid-cols-3 xl:gap-8">
               <div className="space-y-8 xl:col-span-1">
                 <img

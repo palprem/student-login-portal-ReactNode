@@ -11,7 +11,7 @@ const navigation = [
     return (
       <header className="bg-indigo-600">
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Top">
-          <div className="w-full py-6 flex items-center justify-between border-b border-indigo-500 lg:border-none">
+          <div className="w-full py-3 flex items-center justify-between border-b border-indigo-500 lg:border-none">
             <div className="flex items-center">
               <Link to="/">
                 <span className="sr-only">Workflow</span>
@@ -38,9 +38,15 @@ const navigation = [
               </Link>
               <Link
                 to="/signIn"
-                className="inline-block bg-white py-2 px-4 border border-transparent rounded-md text-base font-medium text-indigo-600 hover:bg-indigo-50"
+                className="inline-block bg-white py-2 px-4 border border-transparent rounded-md text-base font-medium text-indigo-600 hover:bg-red-600"
               >
                 Sign In
+              </Link>
+              <Link
+                to="/signIn"
+                className="inline-block bg-black py-2 px-4 border border-transparent rounded-md text-base font-medium text-indigo-600 hover:bg-red-700"
+              >
+                Log Out
               </Link>
             </div>
           </div>

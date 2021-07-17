@@ -1,21 +1,30 @@
 import { useState } from "react"
-import axios from 'axios'
+import axios from 'axios';
+import { useHistory } from "react-router";
 
 export default function SignIn() {
+  const histery = useHistory();
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
   const [password, setPassword] = useState('')
+  const [error, setError] = useState('')
   const data = {name, email, phone, password}
-  console.log("data", data)
+  function validateForm() {
+    return email.length > 0 && password.length > 0 && phone.length>0 && name.length > 0;
+  }
   const submitData=(e)=>{
     e.preventDefault();
-    if(data){
-        axios.post('https://localhost:5000/register', data)
-        .then(responce=>console.log("res",responce))
-        .catch(err=>console.log("err", err))
-    }
-    console.log("data", data)
+    axios.post('http://localhost:5000/register', data)
+    .then((result)=>{
+      if(result.status==200){
+        console.log("ha bhai ha", result)
+        histery.push("/login")
+      }
+
+    })
+    .catch(err=>console.log("err", err))    
+    setError('Fill all details in proper way!')
 }
 
   return (
@@ -24,10 +33,11 @@ export default function SignIn() {
         <div className="mx-auto w-full max-w-sm lg:w-96">
           <div>
             <h2 className="mt-6 text-3xl font-extrabold text-gray-900">Sign in to your account</h2>
+            <p className="text-center">{error}</p>
           </div>
           <div className="mt-8">
             <div className="mt-6">
-              <div  className="space-y-6">
+              <form  className="space-y-6" onSubmit={submitData}>
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                     Name
@@ -69,7 +79,8 @@ export default function SignIn() {
                     <input
                       id="phone"
                       name="Phone"
-                      type="number"
+                      type="tel"
+                      pattern="[0-9]{10}"
                       autoComplete="contect"
                       required
                       onChange={e=>setPhone(e.target.value)}
@@ -97,7 +108,7 @@ export default function SignIn() {
                 <div>
                   <button
                     type="submit" 
-                    onClick={submitData}
+                    disabled={!validateForm()}
                     className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                   >
                     Sign in
@@ -110,7 +121,7 @@ export default function SignIn() {
                     </a>
                   </div>
                 </div>
-              </div>
+              </form>
             </div>
           </div>
         </div>
